@@ -1,5 +1,6 @@
 package com.reema.assignment3;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -76,37 +77,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         // Load user data and update the views
         databaseReference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method will be called every time the data at the specified
-//                // reference changes. You can use the dataSnapshot parameter to
-//                // retrieve the data.
-//
-//                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-//
-//
-//                    String userName = dataSnapshot.child("name").getValue(String.class);
-//                    String date = dataSnapshot.child("date").getValue(String.class);
-//                    String address = dataSnapshot.child("address").getValue(String.class);
-//                    String phone = dataSnapshot.child("phone").getValue(String.class);
-//
-//
-//
-//                    int color = Color.BLACK;
-//                    SpannableString spannableString = new SpannableString(userName);
-//                    ForegroundColorSpan foregroundSpan = new ForegroundColorSpan(color);
-//                    spannableString.setSpan(foregroundSpan, 0, userName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-//
-//                    userNameTextView.setText("User Name: " + spannableString);
-//                    userDateTextView.setText("BirthDate: "+date);
-//                    userAddressTextView.setText("Address: "+address);
-//                    userPhoneTextView.setText("Phone: " +phone);
-//
-//
-//
-//
-//                }
-//            }
 
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method will be called every time the data at the specified

@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -49,7 +50,7 @@ public class SettingsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
     private StorageReference storageProfilePicsRef;
-
+    private ProgressBar progressBar;
     private String currentUserID;
     private static final int GALLERY_PICK = 1;
     private static final int GALLERY_REQUEST_CODE = 1;
@@ -59,7 +60,8 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
         settingsToolbar = findViewById(R.id.settings_toolbar);
         setSupportActionBar(settingsToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -94,7 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
                 String date = userDateEditText.getText().toString();
                 String address = userAddressEditText.getText().toString();
                 String phone = userPhoneEditText.getText().toString();
-                //&&TextUtils.isEmpty(date)&&TextUtils.isEmpty(address)&&TextUtils.isEmpty(phone)
+
                 if (TextUtils.isEmpty(username)) {
                     Toast.makeText(SettingsActivity.this, "Please fill all the fields" , Toast.LENGTH_SHORT).show();
                 } else {//
@@ -105,6 +107,7 @@ public class SettingsActivity extends AppCompatActivity {
         RetrieveUserInfo();
     }
     private void updateAccountInfo(final String username, final String date, final String address, final String phone) {
+        progressBar.setVisibility(View.VISIBLE);
         if (imageUri != null) {
             final StorageReference fileRef = storageProfilePicsRef.child(currentUserID + ".jpg");
             UploadTask uploadTask = fileRef.putFile(imageUri);
@@ -119,6 +122,7 @@ public class SettingsActivity extends AppCompatActivity {
             }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
                 public void onComplete(@NonNull Task<Uri> task) {
+                    progressBar.setVisibility(View.INVISIBLE);
                     if (task.isSuccessful()) {
                         Uri downloadUrl = task.getResult();
                         String myUrl = downloadUrl.toString();

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Assignment3</string>
+
+    <string name="login_status_key">login</string>
+</resources>

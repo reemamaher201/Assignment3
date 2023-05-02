@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1095394884453",
+    "project_id": "assignment3-9d2f6",
+    "storage_bucket": "assignment3-9d2f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095394884453:android:0b93840c0dd78b95c03f8c",
+        "android_client_info": {
+          "package_name": "com.reema.assignment3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095394884453-relctmtvkfv9vu06s04hil6u58lufn0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8gPwGTy54jI4U9qbwKETLYMASM5HrwHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095394884453-relctmtvkfv9vu06s04hil6u58lufn0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
